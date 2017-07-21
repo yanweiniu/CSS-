@@ -1,0 +1,135 @@
+<html>
+  <style>
+    .container{      
+      -webkit-perspective: 800;   
+      -webkit-perspective-origin: 50% 40%;  
+    }
+    .img{width:200px; padding:20px;}
+    .trans{
+      border:1px solid #333;height:100px;width: 200px;margin: 20px; float: left;
+    }
+    .trans_rotata{
+      -webkit-transform:rotate(7deg);
+    }
+    .trans_rotataX{
+      -webkit-transform:rotateX(60deg);
+    }
+
+    .trans_3d{
+      -webkit-transform:rotate3d(1,-1,0,60deg)
+    }
+
+    .opacity{
+      opacity: 0.2;
+    }
+
+    .trans_scale{
+      -webkit-transform:scale(1.1, 1.1);
+    }
+
+    .trans_scale3D{
+      -webkit-transform:scale3D(1.1, 1.1, 1.1);
+    }
+
+    .img:hover{
+      -webkit-transform:scale3D(1.1, 1.1, 1.1);
+    }
+    .trans_skew{
+      -webkit-transform:skew(30deg,10deg);
+    }
+
+    @-webkit-keyframes spin {  
+     from {  
+       -webkit-transform: rotateY(0);  
+     }  
+     to {  
+       -webkit-transform: rotateY(-360deg);  
+     }  
+   }  
+   .cube {  
+     margin: 0 auto;  
+     width: 200px;  
+     height: 200px;  
+     position: relative;  
+     -webkit-animation: spin 8s infinite linear;  
+     -webkit-transform-style: preserve-3d;  
+   }  
+   .cube .rect {
+     position: absolute;
+     top: 0px;
+     left: 0px;  
+     width: 200px;  
+     height: 200px;  
+     border-radius: 5px;  
+     border: 1px solid #ccc;  
+     font-size: 125pt;  
+     text-align: center;  
+     line-height: 200px;  
+     background-color: #bbb;  
+     opacity: 0.5;  
+   }  
+   .cube .cubeA {    
+     -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateX(90deg) translateZ(100px);  
+   }  
+   .cube .cubeB {  
+     -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateX(-90deg) translateZ(100px);  
+   }  
+   .cube .cubeC {  
+     -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(-90deg) translateZ(100px);  
+   }  
+   .cube .cubeD {  
+     -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(90deg) translateZ(100px);  
+   }  
+   .cube .cubeE {  
+     -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(180deg) translateZ(100px);  
+   }  
+   .cube .cubeF {  
+     -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(0deg) translateZ(100px);  
+   } 
+
+  </style>
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".trans_rotata").click(function(){
+        var now = "3700";
+       $(this).animate({deg: 5000},{
+        step: function(now,fx) {
+          $(this).css('-webkit-transform','rotate('+now+'deg)');
+          $(this).css('-moz-transform','rotate('+now+'deg)'); 
+          $(this).css('-ms-transform','rotate('+now+'deg)');
+          $(this).css('-o-transform','rotate('+now+'deg)');
+          $(this).css('transform','rotate('+now+'deg)');  
+        },
+        duration:'slow'
+        },'linear');
+      })
+      
+    })
+  </script>
+
+  <div class="container">
+    <div class="trans trans_rotata"></div>
+    <div class="trans"></div>
+    <div class="trans trans_rotataX"></div>
+    <div class="trans trans_skew"></div>
+    <br>
+    <img class="img"src="http://h.hiphotos.baidu.com/image/w%3D2048/sign=d3c034d4e4cd7b89e96c3d833b1c43a7/a8773912b31bb051ffde8736347adab44aede031.jpg">
+    <img class="img trans_rotataX" src="http://h.hiphotos.baidu.com/image/w%3D2048/sign=d3c034d4e4cd7b89e96c3d833b1c43a7/a8773912b31bb051ffde8736347adab44aede031.jpg">
+
+    <img class="img trans_3d" src="http://h.hiphotos.baidu.com/image/w%3D2048/sign=d3c034d4e4cd7b89e96c3d833b1c43a7/a8773912b31bb051ffde8736347adab44aede031.jpg">
+    <img class="img trans_3ds" src="http://h.hiphotos.baidu.com/image/w%3D2048/sign=d3c034d4e4cd7b89e96c3d833b1c43a7/a8773912b31bb051ffde8736347adab44aede031.jpg">
+    <img class="img trans_scale" src="http://h.hiphotos.baidu.com/image/w%3D2048/sign=d3c034d4e4cd7b89e96c3d833b1c43a7/a8773912b31bb051ffde8736347adab44aede031.jpg">
+    <img class="img trans_scale3D opacity" src="http://h.hiphotos.baidu.com/image/w%3D2048/sign=d3c034d4e4cd7b89e96c3d833b1c43a7/a8773912b31bb051ffde8736347adab44aede031.jpg">
+
+
+    <div class="cube"><!--用于为子元素设置3D效果，同时围绕的坐标轴也是以此元素为基础。若在这里放景深，跳不出来效果-->  
+        <div class="cubeA rect">1</div><!--具体效果看css就明白了。旋转下就好-->  
+        <div class="cubeB rect">2</div>
+        <div class="cubeC rect">3</div>
+        <div class="cubeD rect">4</div>  
+        <div class="cubeE rect">5</div>  
+        <div class="cubeF rect">6</div>
+    </div>          
+  </div>
+</html>

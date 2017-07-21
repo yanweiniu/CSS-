@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>demo</title>
+</head>
+<body>
+    <style type="text/css">
+        @-webkit-keyframes rotate{
+            from{-webkit-transform:rotateY(0);}
+            to{-webkit-transform:rotateY(-360deg);}
+        }
+        @keyframes rotate{
+            from{-webkit-transform:rotateY(0);}
+            to{-webkit-transform:rotateY(-360deg);}
+        }
+        .rect{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 125pt;
+            text-align: center;
+            line-height: 200px;
+            background-color: #bbb;
+            opacity: 0.5;
+            animation: rotate 8s infinite linear;
+            -webkit-animation:rotate 8s infinite linear;
+        }
+        .rect:hover{
+            animation-play-state: paused;
+        }
+        .stop{
+          animation-play-state: paused;
+        }
+        #control{
+          margin: 0 auto;
+          text-align: center;
+          margin-top: 10px;
+        }
+
+    </style>
+    <div id="number" class ="rect">6</div>
+    <div id="control">
+      <button id="run" onclick="frun()">播放</button>
+      <button id="pause" onclick="fpause()">暂停</button>
+    </div>
+    <script type="text/javascript">
+
+    var obj=document.getElementById('number');
+      function fpause(){
+        if (obj) {
+          obj.style.setProperty('animation-play-state',"paused"); 
+          //obj.classList.add('stop');//方法二
+        }
+      }
+      function frun(){
+        if (obj) {
+          obj.style.setProperty('animation-play-state',"running"); 
+          //obj.classList.remove('stop');//方法二
+        }
+       }
+    </script>
+</body>
+</html>

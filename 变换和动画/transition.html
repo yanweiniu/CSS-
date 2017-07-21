@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body{
+        margin-top: 30px;
+      }
+      .box {
+          width: 400px; padding: 15px;  background-color: #f0f3f9;
+      }
+      .content {
+          height: 0; position: relative;  overflow: hidden;
+          -webkit-transition: height 0.6s;
+          -moz-transition: height 0.6s;
+          -o-transition: height 0.6s;
+          transition: height 0.6s;
+      }
+      .content img {  
+          position: absolute;  bottom: 0;
+      }
+      .block{
+        margin: 20px 20px 20px 0;
+        width:100px;
+        height:100px;
+        background:blue;
+        transition:background 2s, width 2s;
+      }
+
+      .block:hover{
+        width:300px;
+        background:red;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="block"></div>
+      <a href="javascript:" class="btn btn-primary" id="button">点击展开图片</a>
+      <div id="more" class="content">
+          <img src="http://i1.hoopchina.com.cn/u/1403/26/425/2709425/3076ecc2.jpg" height="191" />
+      </div>
+    </div>
+
+
+    <script>
+      (function() {
+          var Btn = document.getElementById("button"),
+              More = document.getElementById("more");
+          
+          var display = false;
+          
+          Btn.onclick = function() {
+              display = !display;
+              More.style.height = display? "192px": "0px"
+              return false;
+          };
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+.flash_notice {
+  color: #3A87AD;
+  background-color: #D9EDF7;
+  border-color: #BCE8F1;
+}
+.flash_success {
+  color: #468847;
+  background-color: #DFF0D8;
+  border-color: #D6E9C6;
+}
